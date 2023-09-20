@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Contact;
+use App\Models\Announcement;
 
 class AdminIndexController extends Controller
 {
@@ -12,8 +14,11 @@ class AdminIndexController extends Controller
      */
     public function index()
     {
-        return view('admin.layout.dashboard');
+        $countA = Announcement::count();
+        $countM = Contact::count();
+        return view('admin.pages.dashboard', compact('countA', 'countM'));
     }
+
 
     /**
      * Show the form for creating a new resource.

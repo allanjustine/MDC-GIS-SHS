@@ -13,7 +13,7 @@
                         <i class="fa-solid fa-gear mr-2"></i> </a>
                     <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right mr-3">
                         <div class=" dropdown-header noti-title">
-                            <h6 class="text-overflow m-0" style="text-align: left;">Welcome!
+                            <h6 class="text-overflow m-0" style="text-align: left;">Welcome! {{ auth()->user()->name }}
                             </h6>
                         </div>
                         <a href="#" class="dropdown-item">
@@ -44,11 +44,11 @@
             <div class="sidebar">
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img id="sidebar-img" src="{{ Auth::user()->profile_image === null ? Storage::url('images/profile.jpg') : Storage::url(Auth::user()->profile_image) }}" class="img-circle elevation-2" alt="User Image"
+                        <img id="sidebar-img" src="{{ Auth::user()->profile_image === null ? url('images/profile.jpg') : Storage::url(Auth::user()->profile_image) }}" class="img-circle elevation-2" alt="User Image"
                             style="border-radius: 50%; width: 40px; height: 40px;">
                     </div>
                     <div class="info">
-                        <a href="/admin/profile" class="d-block">Welcome, Admin</a>
+                        <a href="/admin/profile" class="d-block">Welcome, {{ auth()->user()->name }}</a>
                     </div>
                 </div>
                 <nav class="mt-2">
@@ -60,6 +60,24 @@
                                 <i class="nav-icon fa-solid fa-gauge-max"></i>
                                 <p>
                                     Dashboard
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/announcements"
+                                class="nav-link {{ 'admin/announcements' == request()->path() ? 'active2' : '' }}">
+                                <i class="nav-icon fa-solid fa-bullhorn"></i>
+                                <p>
+                                    Announcement
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/messages"
+                                class="nav-link {{ 'admin/messages' == request()->path() ? 'active2' : '' }}">
+                                <i class="nav-icon fa-solid fa-inbox"></i>
+                                <p>
+                                    Messages
                                 </p>
                             </a>
                         </li>

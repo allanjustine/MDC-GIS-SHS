@@ -2,6 +2,10 @@
 
 @include('normal-view.layout.navbar')
 
+@section('title')
+    About Us
+@endsection
+
 @section('content')
     <div class="container mx-auto p-4">
         <div class="flex items-center justify-center mt-10">
@@ -23,28 +27,28 @@
                         and community engagement. Here's what sets us apart:
                     </p>
                     <ul class="list-none ml-6 mt-4">
-                        <li class="border rounded p-4 my-2 shadow">
+                        <li class="border rounded p-4 my-2 shadow-lg bg-gray-200">
                             <strong>Experienced Educators:</strong> Our
                             passionate and experienced teachers are committed to
                             academic excellence and fostering personal growth.
                         </li>
-                        <li class="border rounded p-4 my-2 shadow">
+                        <li class="border rounded p-4 my-2 shadow-lg bg-gray-200">
                             <strong>Modern Facilities:</strong> We provide
                             state-of-the-art facilities and resources to support
                             innovative teaching and learning.
                         </li>
-                        <li class="border rounded p-4 my-2 shadow">
+                        <li class="border rounded p-4 my-2 shadow-lg bg-gray-200">
                             <strong>Comprehensive Curriculum:</strong> Our
                             curriculum is designed to challenge and engage
                             students, preparing them for success in an
                             ever-changing world.
                         </li>
-                        <li class="border rounded p-4 my-2 shadow">
+                        <li class="border rounded p-4 my-2 shadow-lg bg-gray-200">
                             <strong>Extracurricular Activities:</strong> We
                             offer a wide range of extracurricular activities to
                             develop talents and interests outside the classroom.
                         </li>
-                        <li class="border rounded p-4 my-2 shadow">
+                        <li class="border rounded p-4 my-2 shadow-lg bg-gray-200">
                             <strong>Community Engagement:</strong> We encourage
                             community involvement and service, fostering a sense
                             of social responsibility.

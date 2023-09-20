@@ -2,6 +2,10 @@
 
 @include('normal-view.layout.navbar')
 
+@section('title')
+    Services
+@endsection
+
 @section('content')
     <div class="container mx-auto p-4">
         <div class="flex items-center justify-center mt-10">

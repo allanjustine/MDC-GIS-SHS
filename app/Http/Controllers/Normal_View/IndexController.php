@@ -17,21 +17,17 @@ class IndexController extends Controller
         }
         return view('normal-view.pages.home');
     }
+    public function dashboardNormal()
+    {
+        return view('normal-view.pages.dashboard');
+    }
     public function about()
     {
         return view('normal-view.pages.about');
     }
-    public function contact()
-    {
-        return view('normal-view.pages.contact');
-    }
     public function services()
     {
         return view('normal-view.pages.services');
-    }
-    public function feedback()
-    {
-        return view('normal-view.pages.feedback');
     }
 
     /**

@@ -42,6 +42,7 @@ class AdminSeeder extends Seeder
 
         $user = User::factory()->create([
             'profile_image' => null,
+            'id_number' => '1000',
             'name' => 'Juan Dela Cruz',
             'address' => 'Cebu City',
             'email' => 'user@gmail.com',
@@ -56,6 +57,7 @@ class AdminSeeder extends Seeder
 
         $user = User::factory()->create([
             'profile_image' => null,
+            'id_number' => 'admin',
             'name' => 'Administrator',
             'address' => 'Bohol',
             'email' => 'admin@gmail.com',

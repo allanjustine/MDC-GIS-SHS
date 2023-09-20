@@ -24,20 +24,23 @@ class AuthIndexController extends Controller
     {
 
         $request->validate([
-            'email' => 'required|email',
+            'id_number' => 'required',
             'password' => 'required',
         ]);
 
 
-        $credentials = $request->only('email', 'password');
+        $credentials = $request->only('id_number', 'password');
 
         if (Auth::attempt($credentials)) {
-
-            return redirect()->intended('admin/dashboard');
+            if (auth()->user()->is_admin) {
+                return redirect()->intended('/admin/dashboard');
+            } else {
+                return redirect()->intended('/dashboard');
+            }
         }
 
 
-        return back()->withErrors(['email' => 'Invalid Email', 'password' => 'Invalid Password'])->withInput();
+        return back()->withErrors(['id_number' => 'Invalid Credentials', 'password' => 'Invalid Credentials'])->withInput();
     }
 
     public function registerForm()

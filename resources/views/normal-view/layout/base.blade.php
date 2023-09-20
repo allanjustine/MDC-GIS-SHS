@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="stylesheet" href="app.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
-    <title>MDC-GIS-SIS</title>
+    <title>MDC-GIS-SHS | @yield('title')</title>
 
 </head>
 
@@ -33,23 +34,31 @@
     <div class="flex justify-between mx-20 mt-10">
         <div class="text-center">
             <a href="#" class="block bg-green-500 rounded-full w-12 h-12 mx-auto mb-2">
-                <i class="fas fa-phone-alt text-black text-2xl mt-2"></i>
+                <i class="fas fa-phone-alt text-black text-2xl mt-3"></i>
             </a>
-            <p>0945-756-2827</p>
+            <p class="hidden md:block text-xs">0945-756-2827</p>
         </div>
         <div class="text-center">
             <a href="#" class="block bg-blue-500 rounded-full w-12 h-12 mx-auto mb-2">
-                <i class="fab fa-facebook-f text-black text-2xl mt-2"></i>
+                <i class="fab fa-facebook-f text-black text-2xl mt-3"></i>
             </a>
-            <p>mdc2023@facebook.com</p>
+            <p class="hidden md:block text-xs">mdc2023@facebook.com</p>
         </div>
         <div class="text-center">
             <a href="#" class="block bg-green-500 rounded-full w-12 h-12 mx-auto mb-2">
-                <i class="fas fa-envelope text-white text-2xl mt-2"></i>
+                <i class="fas fa-envelope text-white text-2xl mt-3"></i>
             </a>
-            <p>mdc2023@gmail.com</p>
+            <p class="hidden md:block text-xs">mdc2023@gmail.com</p>
         </div>
     </div>
 </footer>
 
 </html>
+
+<style>
+    @media (max-width: 640px) {
+        body {
+            background-size: 1000px auto !important;
+        }
+    }
+</style>
