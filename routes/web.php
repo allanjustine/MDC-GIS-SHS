@@ -20,6 +20,7 @@ use App\Http\Controllers\Auth\AuthIndexController;
 |
 */
 
+//Pages in normal view
 Route::get('/', [IndexController::class, 'index']);
 Route::get('/about-us', [IndexController::class, 'about']);
 Route::get('/contact-us', [NormalContactUsController::class, 'contact']);
@@ -27,8 +28,9 @@ Route::post('/contact-us', [NormalContactUsController::class, 'contactUsStore'])
 Route::get('/announcements', [NormalAnnouncementController::class, 'announcement']);
 Route::get('/services', [IndexController::class, 'services']);
 
-Route::get('/login', [AuthIndexController::class, 'loginForm'])->name('login');
-Route::post('/login', [AuthIndexController::class, 'login']);
+//For Auth
+Route::get('/login', [AuthIndexController::class, 'loginForm']);
+Route::post('/login', [AuthIndexController::class, 'login'])->name('login');
 Route::post('/logout', [AuthIndexController::class, 'logout'])->name('logout');
 // Route::get('/register', [AuthIndexController::class, 'registerForm'])->name('register');
 
@@ -36,20 +38,22 @@ Route::post('/logout', [AuthIndexController::class, 'logout'])->name('logout');
 Route::group(['middleware' => ['auth', 'role:admin']], function () {
 
     //Dashboard Route
-    Route::get('/admin/dashboard', [AdminIndexController::class, 'index'])->name('admin.dashboard');
+    Route::get('/admin/dashboard', [AdminIndexController::class, 'index']);
 
     //Messages Route
     Route::get('/admin/messages', [ContactUsController::class, 'message']);
 
     //Announcement Route
     Route::get('/admin/announcements', [AnnouncementController::class, 'announcement']);
-    Route::get('/admin/announcements/create', [AnnouncementController::class, 'announcementCreate'])->name('announcements.create');
-    Route::post('/admin/announcements/create', [AnnouncementController::class, 'announcementStore']);
+    Route::get('/admin/announcements/create', [AnnouncementController::class, 'announcementCreate']);
+    Route::post('/admin/announcements/create', [AnnouncementController::class, 'announcementStore'])->name('announcements.create');
     Route::get('/admin/announcements/{announcement}/update', [AnnouncementController::class, 'edit']);
     Route::put('/admin/announcements/{announcement}/update', [AnnouncementController::class, 'update'])->name('admin.announcements.update');
     Route::get('/admin/announcements/{announcement}/confirm-delete', [AnnouncementController::class, 'toDelete']);
     Route::delete('/admin/announcements/{announcement}/confirm-delete', [AnnouncementController::class, 'destroy'])->name('admin.announcements.destroy');
 });
 Route::group(['middleware' => ['auth', 'role:user']], function () {
+
+    //User Dashboard
     Route::get('/dashboard', [IndexController::class, 'dashboardNormal']);
 });
