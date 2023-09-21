@@ -5,6 +5,18 @@
 @endsection
 
 @section('content')
+    @if (session('message'))
+        <div class="bg-green-200 mb-4 border-l-4 border-r-4 text-center border-green-500 text-green-700 p-4 relative">
+            <span class="block sm:inline text-bold"><i class="fas fa-bullhorn"></i> {{ session('message') }}</span>
+            <button class="absolute top-0 right-0 mt-4 mr-2 text-md text-green-700 hover:text-green-500 focus:outline-none"
+                onclick="this.parentElement.style.display = 'none';">
+                <svg class="h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                    <path
+                        d="M6.293 6.293a1 1 0 0 1 1.414 0L10 8.586l2.293-2.293a1 1 0 1 1 1.414 1.414L11.414 10l2.293 2.293a1 1 0 0 1-1.414 1.414L10 11.414l-2.293 2.293a1 1 0 1 1-1.414-1.414L8.586 10 6.293 7.707a1 1 0 0 1 0-1.414z" />
+                </svg>
+            </button>
+        </div>
+    @endif
     <div class="bg-white rounded-lg shadow-lg p-6">
         <div class="flex justify-between mb-4">
             <span class="text-bold text-2xl">Total Entries: {{ $announcements->count() }}</span>
@@ -38,12 +50,8 @@
                                             class="px-4 py-2 text-black rounded-full hover:bg-yellow-600 bg-yellow-500">Update</a>
                                     </span>
                                     <span>
-                                        <form action="/admin/announcement/delete" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit"
-                                                class="px-4 py-2 text-white rounded-full hover:bg-red-600 bg-red-700">Delete</button>
-                                        </form>
+                                        <a href="{{ route('admin.announcements.destroy', $announcement->id) }}"
+                                            class="px-4 py-2 text-white rounded-full hover:bg-red-600 bg-red-500">Delete</a>
                                     </span>
                                 </div>
                             </td>

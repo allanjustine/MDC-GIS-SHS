@@ -13,6 +13,6 @@ class ContactUsController extends Controller
         $count = Contact::count();
         $messages = Contact::orderBy('id', 'asc')->paginate(10);
 
-        return view('admin.pages.messages', compact('messages', 'count'));
+        return view('admin.pages.message.messages', compact('messages', 'count'));
     }
 }

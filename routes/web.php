@@ -34,12 +34,21 @@ Route::post('/logout', [AuthIndexController::class, 'logout'])->name('logout');
 
 
 Route::group(['middleware' => ['auth', 'role:admin']], function () {
+
+    //Dashboard Route
     Route::get('/admin/dashboard', [AdminIndexController::class, 'index'])->name('admin.dashboard');
-    Route::get('/admin/announcements', [AnnouncementController::class, 'announcement']);
+
+    //Messages Route
     Route::get('/admin/messages', [ContactUsController::class, 'message']);
+
+    //Announcement Route
+    Route::get('/admin/announcements', [AnnouncementController::class, 'announcement']);
     Route::get('/admin/announcements/create', [AnnouncementController::class, 'announcementCreate'])->name('announcements.create');
     Route::post('/admin/announcements/create', [AnnouncementController::class, 'announcementStore']);
-    Route::get('/admin/announcements/{id}/update', [AnnouncementController::class, 'announcementUpdate'])->name('admin.announcements.update');
+    Route::get('/admin/announcements/{announcement}/update', [AnnouncementController::class, 'edit']);
+    Route::put('/admin/announcements/{announcement}/update', [AnnouncementController::class, 'update'])->name('admin.announcements.update');
+    Route::get('/admin/announcements/{announcement}/confirm-delete', [AnnouncementController::class, 'toDelete']);
+    Route::delete('/admin/announcements/{announcement}/confirm-delete', [AnnouncementController::class, 'destroy'])->name('admin.announcements.destroy');
 });
 Route::group(['middleware' => ['auth', 'role:user']], function () {
     Route::get('/dashboard', [IndexController::class, 'dashboardNormal']);

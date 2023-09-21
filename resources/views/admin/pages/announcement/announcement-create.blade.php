@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    @if (session('message'))
+    {{-- @if (session('message'))
         <div class="bg-green-200 border-l-4 border-r-4 text-center border-green-500 text-green-700 p-4 relative">
             <span class="block sm:inline text-bold"><i class="fas fa-bullhorn"></i> {{ session('message') }}</span>
             <button class="absolute top-0 right-0 mt-4 mr-2 text-md text-green-700 hover:text-green-500 focus:outline-none"
@@ -16,7 +16,7 @@
                 </svg>
             </button>
         </div>
-    @endif
+    @endif --}}
 
     <div class="mt-5">
         <form action="{{ route('announcements.create') }}" method="POST"
