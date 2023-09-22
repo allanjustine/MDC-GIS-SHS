@@ -38,7 +38,7 @@
                         <div class="flex items-center">
                             <input type="text" id="id_number" placeholder="ID Number" name="id_number"
                                 class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
-                                required autocomplete="id_number" autofocus />
+                                required autocomplete="id_number" value="{{ old('id_number') }}" autofocus />
                             <i class="fas fa-key text-gray-400 absolute right-4 top-1/10 transform -translate-y-1/10"></i>
                         </div>
                         @error('id_number')

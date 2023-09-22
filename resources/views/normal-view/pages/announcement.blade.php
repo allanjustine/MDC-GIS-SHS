@@ -21,10 +21,13 @@
                     <div class="mt-4">
                         <div class="bg-gray-200 rounded-lg shadow-lg p-6 border border-gray-300">
                             <p class="float-right mt-[-15px] mr-[-10px] text-gray-500 text-xs">
-                                {{ $announcement->created_at->format('F j, Y - h:i A') }}</p>
+                                Posted on: {{ $announcement->created_at->format('F j, Y - h:i A') }}</p>
                             <h2 class="text-2xl font-semibold text-gray-800 mb-4"><i class="fas fa-bullhorn"></i> |
                                 {{ $announcement->title }}</h2>
-                            <div class="text-gray-600">-{{ $announcement->remarks }}</div>
+                            <p class="text-gray-600">-{{ $announcement->remarks }}</p>
+
+                            <p class="float-right mr-[-10px] text-gray-500 text-xs">
+                                {{ $announcement->created_at->diffForHumans() }}</p>
                         </div>
                     </div>
                 @endforeach
