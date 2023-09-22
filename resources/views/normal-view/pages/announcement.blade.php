@@ -19,7 +19,8 @@
                 <hr class="mb-5">
                 @foreach ($announcements as $announcement)
                     <div class="mt-4">
-                        <div class="bg-gray-200 rounded-lg shadow-lg p-6 border border-gray-300">
+                        <div
+                            class="bg-gray-200 hover:bg-gray-100 transform scale-100 custom-scale-102 transition-transform duration-300 ease-in-out rounded-lg shadow-lg p-6 border border-gray-300">
                             <p class="float-right mt-[-15px] mr-[-10px] text-gray-500 text-xs">
                                 Posted on: {{ $announcement->created_at->format('F j, Y - h:i A') }}</p>
                             <h2 class="text-2xl font-semibold text-gray-800 mb-4"><i class="fas fa-bullhorn"></i> |
@@ -44,3 +45,9 @@
         </div>
     </div>
 @endsection
+
+<style>
+    .custom-scale-102:hover {
+        transform: scale(1.02);
+    }
+</style>

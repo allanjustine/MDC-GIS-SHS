@@ -39,8 +39,10 @@
                     <div class="grid md:grid-cols-2 gap-4">
                         <div class="mb-4">
                             <label for="full_name" class="block text-gray-700 font-bold mb-2">Full Name</label>
-                            <input type="text" id="full_name" name="full_name" placeholder="Full Name"
-                                class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500" />
+                            <input type="text" @if (auth()->check()) disabled @endif
+                                value="{{ auth()->check() ? auth()->user()->name : '' }}" id="full_name" name="full_name"
+                                placeholder="Full Name"
+                                class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500 @if (auth()->check()) cursor-not-allowed @endif" />
                             @error('full_name')
                                 <div class="text-sm text-red-500 italic">
                                     {{ $message }}
@@ -49,8 +51,10 @@
                         </div>
                         <div class="mb-4">
                             <label for="email" class="block text-gray-700 font-bold mb-2">Email</label>
-                            <input type="email" name="email" id="email" placeholder="Email"
-                                class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500" />
+                            <input type="email" @if (auth()->check()) disabled @endif
+                                value="{{ auth()->check() ? auth()->user()->email : '' }}" name="email" id="email"
+                                placeholder="Email"
+                                class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500 @if (auth()->check()) cursor-not-allowed @endif" />
                             @error('email')
                                 <div class="text-sm text-red-500 italic">
                                     {{ $message }}
@@ -61,8 +65,10 @@
                     <div class="grid md:grid-cols-2 gap-4">
                         <div class="mb-4">
                             <label for="phone_number" class="block text-gray-700 font-bold mb-2">Phone Number</label>
-                            <input type="tel" id="phone_number" name="phone_number" placeholder="Phone Number"
-                                class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500" />
+                            <input type="tel" @if (auth()->check()) disabled @endif
+                                value="{{ auth()->check() ? auth()->user()->phone_number : '' }}" id="phone_number"
+                                name="phone_number" placeholder="Phone Number"
+                                class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500 @if (auth()->check()) cursor-not-allowed @endif" />
                             @error('phone_number')
                                 <div class="text-sm text-red-500 italic">
                                     {{ $message }}
@@ -71,8 +77,10 @@
                         </div>
                         <div class="mb-4">
                             <label for="address" class="block text-gray-700 font-bold mb-2">Address</label>
-                            <input type="text" id="address" name="address" placeholder="Address"
-                                class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500" />
+                            <input type="text" @if (auth()->check()) disabled @endif
+                                value="{{ auth()->check() ? auth()->user()->address : '' }}" id="address" name="address"
+                                placeholder="Address"
+                                class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500 @if (auth()->check()) cursor-not-allowed @endif" />
                             @error('address')
                                 <div class="text-sm text-red-500 italic">
                                     {{ $message }}
