@@ -24,8 +24,8 @@ class AuthIndexController extends Controller
     {
 
         $request->validate([
-            'id_number' => 'required',
-            'password' => 'required',
+            'id_number'     =>      'required',
+            'password'      =>      'required',
         ]);
 
 

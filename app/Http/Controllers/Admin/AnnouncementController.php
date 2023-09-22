@@ -23,8 +23,8 @@ class AnnouncementController extends Controller
     public function announcementStore(Request $request)
     {
         $request->validate([
-            'title' => 'required|max:255',
-            'remarks' => 'required',
+            'title'            =>        'required|max:255',
+            'remarks'          =>        'required',
         ]);
 
         Announcement::create([
@@ -42,8 +42,8 @@ class AnnouncementController extends Controller
     public function update(Request $request, Announcement $announcement)
     {
         $request->validate([
-            'title' => 'required|max:255',
-            'remarks' => 'required',
+            'title'         =>      'required|max:255',
+            'remarks'       =>      'required',
         ]);
 
         $announcement->update([
